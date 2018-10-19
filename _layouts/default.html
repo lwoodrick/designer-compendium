@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gaslight Designer Compendium</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tailwind-overrides.css">
+  </head>
+  <body>
+    <div class="container lg:flex">
+      <nav class="w-screen lg:w-1/4 lg:h-screen p-4 bg-red-light">
+        <h1 class="font-bold">Gaslighter Designer Compendium</h1>
+        <h2>Visual Design</h2>
+        <ul>
+          {% for visual_design in site.visual_design %}
+            <li><a href="{{ visual_design.url }}">{{ visual_design.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <h2>User Experience</h2>
+        <ul>
+          {% for user_experience in site.user_experience %}
+            <li><a href="{{ user_experience.url }}">{{ user_experience.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <h2>Front-End Development</h2>
+        <ul>
+          {% for front_end_development in site.front_end_development %}
+            <li><a href="{{ front_end_development.url }}">{{ front_end_development.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <main class="w-screen lg:w-3/4 lg:h-screen p-4">
+        <h2>{{ page.title }}</h2>
+        <ul>
+          {% for post in site.posts %}
+            <li>
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        {{ content }}
+      </main>
+    </div>
+  </body>
+</html>
